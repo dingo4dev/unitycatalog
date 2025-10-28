@@ -70,6 +70,7 @@ public class ServerProperties {
       String secretKey = properties.getProperty("s3.secretKey." + i);
       String sessionToken = properties.getProperty("s3.sessionToken." + i);
       String credentialsGenerator = properties.getProperty("s3.credentialsGenerator." + i);
+      String endpointUrl = properties.getProperty("s3.endpointUrl." + i);
       if ((bucketPath == null || region == null || awsRoleArn == null)
           && (accessKey == null || secretKey == null || sessionToken == null)) {
         break;
@@ -83,6 +84,7 @@ public class ServerProperties {
               .secretKey(secretKey)
               .sessionToken(sessionToken)
               .credentialGenerator(credentialsGenerator)
+              .endpointUrl(endpointUrl)
               .build();
       s3BucketConfigMap.put(bucketPath, s3StorageConfig);
       i++;
